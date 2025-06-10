@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.getupfit;
-
+import Datos.InsertarDatos;
+import javax.swing.JOptionPane;
 /**
  *
  * @author jacie_3u2efj7
@@ -275,7 +276,29 @@ public class pantallaConfiguracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+ try {
+    String nombre = txtnombre.getText();
+    String apellidos = txtapellidos.getText(); // si quieres incluirlo
+    int estatura = Integer.parseInt(txtaltura.getText());
+    int peso = Integer.parseInt(txtpeso.getText());
+    String correo = txtcorreo.getText();
+    String fechaNacimiento = txtfechadenacimiento.getText();
+
+   
+
+    // Llamar al método
+    InsertarDatos id = new InsertarDatos();
+    id.insertarPersona(nombre,apellidos, estatura, peso, correo, fechaNacimiento);
+
+    // Mensaje de éxito
+    JOptionPane.showMessageDialog(this, "Datos guardados con éxito.");
+    
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Por favor, asegúrate de que estatura y peso sean números.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Ocurrió un error al guardar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    e.printStackTrace(); // Útil para depuración en consola
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

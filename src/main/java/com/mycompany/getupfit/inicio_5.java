@@ -4,6 +4,7 @@
  */
 package com.mycompany.getupfit;
 
+import Datos.InsertarDatos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Timer;
@@ -21,36 +22,35 @@ import javax.swing.JOptionPane;
  * @author jacie_3u2efj7
  */
 public class inicio_5 extends javax.swing.JFrame {
-    
+     private pantalla_Inicial pantalla;
+    private InsertarDatos insertarDatos; // Instancia para BD
+    private int idPersona = 1; // O el ID real de la persona (debes asignarlo)
  
 
-            
-
-
-
-  
-            
-   private pantalla_Inicial pantalla;
-
 public inicio_5(pantalla_Inicial pantalla) {
-    this.pantalla = pantalla;
-    initComponents();
-            inicio_5.this.setLocationRelativeTo(null);
-
+ this.pantalla = pantalla;
+        this.insertarDatos = new InsertarDatos(); // Crear instancia de la clase de BD
+        initComponents();
+        inicio_5.this.setLocationRelativeTo(null);
+        
            guardarBtn.addActionListener(e -> {
             String emocion = sentimientoField.getText().trim().toLowerCase();
             if (!emocion.equals("feliz") && !emocion.equals("triste") && !emocion.equals("enojado") && !emocion.equals("neutro")) {
                 JOptionPane.showMessageDialog(this, "Por favor ingresa una emoción válida: feliz, triste, enojado, neutro");
                 return;
             }
-
-            pantalla.actualizarEmocionDiaActual(emocion); // actualiza en la pantalla real la carita
-            JOptionPane.showMessageDialog(this, "Emoción guardada para el día de hoy.");
-
+ boolean exito = insertarDatos.guardarEmocionDiaActual(idPersona, emocion);
+            if (exito) {
+                pantalla.actualizarEmocionDiaActual(emocion); // actualiza en la pantalla real la carita
+                JOptionPane.showMessageDialog(this, "Emoción guardada para el día de hoy.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al guardar la emoción en la base de datos.");
+            }
+            
             pantalla.setVisible(true);
-            inicio_5.this.dispose();  
+            inicio_5.this.dispose();
         });
-        }
+    }
 
    
 
