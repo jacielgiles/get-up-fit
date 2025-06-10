@@ -74,7 +74,8 @@ public  class login extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Console", 0, 18), new java.awt.Color(0, 51, 0))); // NOI18N
 
-        txtusuario.setBackground(new java.awt.Color(204, 255, 204));
+        txtusuario.setBackground(new java.awt.Color(1, 117, 220));
+        txtusuario.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -96,7 +97,8 @@ public  class login extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Console", 0, 18), new java.awt.Color(0, 51, 0))); // NOI18N
 
-        jPasswordField1.setBackground(new java.awt.Color(204, 255, 204));
+        jPasswordField1.setBackground(new java.awt.Color(1, 117, 220));
+        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);

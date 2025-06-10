@@ -13,6 +13,8 @@ public class pantallaDeCarga extends javax.swing.JFrame {
 
         initComponents();
         
+
+        
              
     jProgressBar1.setUI(new javax.swing.plaf.basic.BasicProgressBarUI());
 
