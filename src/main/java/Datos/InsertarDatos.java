@@ -2,6 +2,7 @@ package Datos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import ConexionBD.Conexion;  // Asegúrate de tener bien el paquete
+import User.DBrequest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +10,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 public class InsertarDatos {
 public int insertarPersona(String nombre, String apellido, int estatura, int peso, String correo, String fechaNacimiento) {
     
@@ -37,7 +39,8 @@ public int insertarPersona(String nombre, String apellido, int estatura, int pes
     }
     
     return idGenerado;
-}public boolean guardarEmocionDiaActual(int idPersona, String emocion) {
+}
+public boolean guardarEmocionDiaActual(int idPersona, String emocion) {
     String diaSemana = getNombreDiaSemana();
     String rutaImagen = getRutaImagen(emocion);
     Conexion con = new Conexion();
@@ -111,6 +114,16 @@ private String getRutaImagen(String emocion) {
 }
    
     public static void main(String[] args) {
-       
-        }
-    }
+Scanner sc = new Scanner(System.in);
+        DBrequest db = new DBrequest();
+
+        System.out.print("Ingresa el ID de la persona que deseas consultar: ");
+        int idBuscado = sc.nextInt();
+
+        String datos = db.obtenerDatosPorId(idBuscado);
+        System.out.println("\n=== Datos de la persona ===");
+        System.out.println(datos);
+
+}
+}
+    

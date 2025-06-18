@@ -4,6 +4,7 @@
  */
 package com.mycompany.getupfit;
 import Datos.InsertarDatos;
+import User.DBrequest;
 import javax.swing.JOptionPane;
 /**
  *
@@ -287,9 +288,13 @@ public class pantallaConfiguracion extends javax.swing.JFrame {
    
 
     // Llamar al método
-    InsertarDatos id = new InsertarDatos();
-    id.insertarPersona(nombre,apellidos, estatura, peso, correo, fechaNacimiento);
-
+    DBrequest registro = new DBrequest();
+int idGenerado = registro.insertarPersona(nombre, apellidos, estatura, peso, correo, fechaNacimiento);
+if (idGenerado != -1) {
+            JOptionPane.showMessageDialog(this, "Datos guardados con éxito.\nTu ID generado es: " + idGenerado);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo generar el ID.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     // Mensaje de éxito
     JOptionPane.showMessageDialog(this, "Datos guardados con éxito.");
     
